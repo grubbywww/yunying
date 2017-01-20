@@ -21,11 +21,12 @@ def allowed_file(filename):
 @app.route('/',methods = ['GET','POST'])
 @app.route('/main',methods = ['GET','POST'])
 def main():
+    path = os.getcwd()
+    parent = os.path.join(path,UPLOAD_FOLDER)
+    newName = 'excelFile.xls'
     if request.method == 'POST':
-        newName = 'excelFile.xls'
+
         file = request.files['file']
-        path = os.getcwd()
-        parent = os.path.join(path,UPLOAD_FOLDER)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
