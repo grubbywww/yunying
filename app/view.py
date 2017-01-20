@@ -38,6 +38,6 @@ def main():
     for i in range(1,nrows):
         rows = table.row_values(i)
         lists.append(rows)
-    #return render_template("main.html")
-    return json.dumps(lists)
+    return render_template("main.html",arr = arr)
+    #return json.dumps(lists)
 
