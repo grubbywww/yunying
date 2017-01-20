@@ -30,9 +30,13 @@ def main():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             os.rename(os.path.join(parent,filename),os.path.join(parent,newName))
+    lists = []
     data = xlrd.open_workbook(parent+'/excelFile.xls')
     table = data.sheet_by_index(0)
-    cols = table.col_values(8)
+    nrows = sheet2.nrows
+    for i in range(1,nrows):
+        rows = sheet2.row_values(i)
+        lists.append(rows)
     #return render_template("main.html")
-    return json.dumps(cols)
+    return json.dumps(lists)
 
