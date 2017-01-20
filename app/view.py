@@ -25,7 +25,7 @@ def main():
     parent = os.path.join(path,UPLOAD_FOLDER)
     newName = 'excelFile.xls'
     if request.method == 'POST':
-
+        os.remove(os.path.join(parent,newName))
         file = request.files['file']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
