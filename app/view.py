@@ -38,7 +38,8 @@ def main():
         nrows = table.nrows
         for i in range(1,nrows):
             rows = table.row_values(i)
-            lists.append(rows)
+
+            lists.append({'phone':int(rows[7]),'content':rows[8]})
     else:
         lists = []
     return render_template("main.html",arr = lists)

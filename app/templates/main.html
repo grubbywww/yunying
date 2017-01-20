@@ -279,7 +279,7 @@
                         <thead>
                         <tr><th class='hidden-xs'>联系方式</th><th>警告内容</th><th class='hidden-xs'>操作</th></tr></thead><tbody>
                         {%for i in arr%}
-                        <tr><td>{{i[7]}}</td><td>{{i[8]}}</td><td></td></tr>
+                        <tr><td>{{i.phone}}</td><td>{{i.content}}</td><td></td></tr>
                         {%endfor%}
                         </tbody>
                         </table>
