@@ -32,12 +32,15 @@ def main():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             os.rename(os.path.join(parent,filename),os.path.join(parent,newName))
     lists = []
-    data = xlrd.open_workbook(parent+'/excelFile.xls')
-    table = data.sheet_by_index(0)
-    nrows = table.nrows
-    for i in range(1,nrows):
-        rows = table.row_values(i)
-        lists.append(rows)
-    return render_template("main.html",arr = arr)
+    if os.path.exists(os.path.join(parent,newName)):
+        data = xlrd.open_workbook(parent+'/excelFile.xls')
+        table = data.sheet_by_index(0)
+        nrows = table.nrows
+        for i in range(1,nrows):
+            rows = table.row_values(i)
+            lists.append(rows)
+    else:
+        lists = []
+    return render_template("main.html",arr = lists)
     #return json.dumps(lists)
 
