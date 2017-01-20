@@ -36,7 +36,7 @@ def main():
     table = data.sheet_by_index(0)
     nrows = table.nrows
     for i in range(1,nrows):
-        rows = sheet2.row_values(i)
+        rows = table.row_values(i)
         lists.append(rows)
     #return render_template("main.html")
     return json.dumps(lists)
