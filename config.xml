@@ -1,0 +1,9 @@
+ <uwsgi>
+     <pythonpath>/data/htdocs/yunying</pythonpath> <!--工程的根目录 也可以理解为应用的父目录-->
+     <module>run</module><!--应用所在目录的名称-->
+     <callable>app</callable><!--应用中的具体调用实例，这里是App-->
+     <socket>127.0.0.1:7777</socket>
+     <master/>
+     <processes>30</processes> <!--应用运行的进程数-->
+     <memory-report/>
+</uwsgi>
