@@ -34,7 +34,7 @@ def main():
     lists = []
     data = xlrd.open_workbook(parent+'/excelFile.xls')
     table = data.sheet_by_index(0)
-    nrows = sheet2.nrows
+    nrows = table.nrows
     for i in range(1,nrows):
         rows = sheet2.row_values(i)
         lists.append(rows)
